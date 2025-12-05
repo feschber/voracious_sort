@@ -1,6 +1,7 @@
 #[cfg(feature = "voracious_multithread")]
 use rayon::slice::ParallelSliceMut;
 
+use super::super::sorts::lsd_sort::lsd_radixsort_heu;
 use super::super::sorts::dlsd_sort::dlsd_radixsort;
 #[cfg(feature = "voracious_multithread")]
 use super::super::sorts::peeka_sort::peeka_sort;

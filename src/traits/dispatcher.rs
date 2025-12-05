@@ -309,6 +309,7 @@ impl<T: Radixable<isize>> Dispatcher<T, isize> for isize {
     fn voracious_stable_sort(&self, arr: &mut [T]) {
         lsd_stable_radixsort(arr, 8);
     }
+    #[cfg(feature = "voracious_multithread")]
     fn voracious_mt_sort(&self, arr: &mut [T], thread_n: usize) {
         if arr.len() <= 256 {
             arr.sort_unstable_by(|a, b| a.partial_cmp(b).unwrap());
@@ -576,6 +577,7 @@ impl<T: Radixable<usize>> Dispatcher<T, usize> for usize {
     fn voracious_stable_sort(&self, arr: &mut [T]) {
         lsd_stable_radixsort(arr, 8);
     }
+    #[cfg(feature = "voracious_multithread")]
     fn voracious_mt_sort(&self, arr: &mut [T], thread_n: usize) {
         if arr.len() <= 256 {
             arr.sort_unstable_by(|a, b| a.partial_cmp(b).unwrap());
